@@ -10,11 +10,13 @@ pip install flask-wtf  // Installs the WTForms Components from flask
 pip install flask-sqlalchemy  // This will install the flask-sqlalchemy component.
 pip install flask-migrate  // This will help to migrate or modify the DB when needed. Flask-Migrate is an extension that handles SQLAlchemy database migrations for Flask applications using Alembic. The database operations are provided as command-line arguments under the flask db command.  See documentation: https://github.com/miguelgrinberg/flask-migrate
 
-flask db init   //  This will create a database migration repository and when we need to migrate or modify the database, it will not delete all the existing data.
+flask db init    //  This will create a database migration repository and when we need to migrate or modify the database, it will not delete all the existing data.
 flask db migrate -m "users table"  //  This will migrate the database to the repository folder and create like a backup to compare the tables and update the new one. More info in: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database   //  It also has a upgrade() and downgrade() method in case you want to revert the changes. The flask db migrate command does not make any changes to the database, it just generates the migration script. To apply the changes to the database, the flask db upgrade command must be used.
 flask db upgrade  //  To apply the changes to the database, the flask db upgrade command must be used.
 
-To upgrade changes to the database, Run the following command:
+TO UPGRADE CHANGES TO THE DATABASE, Run the following command:
 flask db migrate -m "posts table"  //  Since I have updates to the application models, a new database migration needs to be generated. This will report what the changes will be. The "-m" is the message that we want to store.
 flask db upgrade   // And the migration needs to be applied to the database. This will upgrade the database repository and the DB with the new changes.
 
+pip install flask-login  //  Installs the flask-login module 
+pip install email-validator  // Installs the email-validator module
