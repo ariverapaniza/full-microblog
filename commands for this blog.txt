@@ -20,3 +20,16 @@ flask db upgrade   // And the migration needs to be applied to the database. Thi
 
 pip install flask-login  //  Installs the flask-login module 
 pip install email-validator  // Installs the email-validator module
+
+set FLASK_ENV=development  //  This is to enable the DEGUB mode to display the error messages if the application fails.
+set FLASK_ENV=production   //  This will enable the production mode and it will disable the DEBUG MODE. This has to be done when the page is live!.
+
+CONFIGURE EMAIL SERVER TO SEND ERROR MESSAGES.  THIS SHOULD BE PUT IN THE TERMINAL.
+set MAIL_SERVER=smtp.gmail.com
+set MAIL_PORT=587
+set MAIL_USE_TLS=1
+set MAIL_USERNAME=<your-gmail-username>
+set MAIL_PASSWORD=<your-gmail-password>
+
+python test.py   //  This file was created to test the application
+
