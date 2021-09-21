@@ -33,3 +33,6 @@ set MAIL_PASSWORD=<your-gmail-password>
 
 python test.py   //  This file was created to test the application
 
+pip install flask-mail  // This will install te flask-mail module
+pip install pyjwt  // This will install the pyjwt module. The password reset links will have a secure token in them. To generate these tokens, I'm going to use JSON Web Tokens, which also have a popular Python package
+
