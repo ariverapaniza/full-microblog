@@ -7,6 +7,8 @@ import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
 from flask_mail import Mail
+from flask_bootstrap import Bootstrap
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -25,6 +27,7 @@ app.config['MAIL_PASSWORD'] = '@Rp596693'
 # Added Ended Here
 
 mail = Mail(app)
+bootstrap = Bootstrap(app)
 
 from app import routes, models, errors
 

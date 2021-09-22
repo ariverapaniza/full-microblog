@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <table>
+
+    <div class="container">
+    <table class="table table-hover">
         <tr valign="top">
-            <td><img src="{{ user.avatar(128) }}"></td>
+            <td><img src="{{ user.avatar(200) }}"></td>
             <td>
                 <h1>User: {{ user.username }}</h1>
                 {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
@@ -15,28 +17,49 @@
                 <p>
                     <form action="{{ url_for('follow', username=user.username) }}" method="post">
                         {{ form.hidden_tag() }}
-                        {{ form.submit(value='Follow') }}
+                        {{ form.submit(value='Follow', class="btn btn-primary") }}
                     </form>
                 </p>
                 {% else %}
                 <p>
                     <form action="{{ url_for('unfollow', username=user.username) }}" method="post">
                         {{ form.hidden_tag() }}
-                        {{ form.submit(value='Unfollow') }}
+                        {{ form.submit(value='Unfollow', class="btn btn-primary") }}
                     </form>
                 </p>
                 {% endif %}
             </td>
         </tr>
     </table>
+    </div>
     <hr>
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
-    {% if prev_url %}
-    <a href="{{ prev_url }}">Newer posts</a>
-    {% endif %}
-    {% if next_url %}
-    <a href="{{ next_url }}">Older posts</a>
-    {% endif %}
-{% endblock %}
+    <div class="container">
+        <nav>
+          <ul class="pagination justify-content-between">
+            {% if prev_url %}
+            <li class="page-item px-5">
+              <a class="page-link" href="{{ prev_url }}">Newer posts</a>
+            </li>
+            {% else %}
+            <li class="page-item px-5 disabled">
+              <a class="page-link" href="{{ prev_url }}">Newer posts</a>
+            </li>
+            {% endif %}
+      
+            {% if next_url %}
+            <li class="page-item px-5">
+              <a class="page-link" href="{{ next_url }}">Older posts</a>
+            </li>
+            {% else %}
+            <li class="page-item px-5 disabled">
+              <a class="page-link" href="{{ next_url }}">Older posts</a>
+            </li>
+            {% endif %}
+            </li>
+          </ul>
+        </nav>
+      </div>
+  {% endblock %}

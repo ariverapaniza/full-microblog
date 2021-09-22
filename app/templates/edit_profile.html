@@ -1,23 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+    <div class="container mb-3 form-floating">
     <h1>Edit Profile</h1>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
             {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
+            {{ form.username(size=32, class="form-control", style="width: 600px;") }}<br>
             {% for error in form.username.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
             {{ form.about_me.label }}<br>
-            {{ form.about_me(cols=50, rows=4) }}<br>
+            {{ form.about_me(cols=50, rows=4, class="form-control", style="width: 600px;") }}<br>
             {% for error in form.about_me.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>{{ form.submit() }}</p>
+        <p>{{ form.submit(class="btn btn-primary") }}</p>
     </form>
+    </div>
+
+
 {% endblock %}
