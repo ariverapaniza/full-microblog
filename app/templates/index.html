@@ -3,7 +3,7 @@
 {% block content %}
 
   <div class="container mb-3 form-floating">
-    <h1>Hi, {{ current_user.username }}!</h1>
+    <h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
     {% if form %}
     <form action="" method="post">
         {{ form.hidden_tag() }}
@@ -27,21 +27,21 @@
         <ul class="pagination justify-content-between">
           {% if prev_url %}
           <li class="page-item px-5">
-            <a class="page-link" href="{{ prev_url }}">Newer posts</a>
+            <a class="page-link" href="{{ prev_url }}">{{ _('Newer posts') }}</a>
           </li>
           {% else %}
           <li class="page-item px-5 disabled">
-            <a class="page-link" href="{{ prev_url }}">Newer posts</a>
+            <a class="page-link" href="{{ prev_url }}">{{ _('Newer posts') }}</a>
           </li>
           {% endif %}
     
           {% if next_url %}
           <li class="page-item px-5">
-            <a class="page-link" href="{{ next_url }}">Older posts</a>
+            <a class="page-link" href="{{ next_url }}">{{ _('Older posts') }}</a>
           </li>
           {% else %}
           <li class="page-item px-5 disabled">
-            <a class="page-link" href="{{ next_url }}">Older posts</a>
+            <a class="page-link" href="{{ next_url }}">{{ _('Older posts') }}</a>
           </li>
           {% endif %}
           </li>
