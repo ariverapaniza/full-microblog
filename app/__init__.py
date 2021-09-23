@@ -26,7 +26,7 @@ app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'holacuentame2021@gmail.com'
 app.config['MAIL_PASSWORD'] = '@Rp596693'
-
+app.config['MS_TRANSLATOR_KEY'] = 'af74ced9afcc4b1faf6831932aec7746'  ##  Delete Key
 # Added Ended Here
 
 mail = Mail(app)

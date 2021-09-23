@@ -51,3 +51,7 @@ So now, the workflow is much simpler and there is no need to remember long and c
 flask translate init es  //  is going to create the spanish translate in the page. 
 flask translate update  //  To update all the languages after making changes to the _() and _l() language markers
 flask translate compile  //  And to compile all languages after updating the translation files
+
+pip install langdetect  // In Python, there is a good language detection library called langdetect. Microsoft Azure free tier account translator with a******ra@outlook.com account. 
+pip install requests  // There are a few HTTP clients in Python, but the most popular and simple to use is the requests package.
+

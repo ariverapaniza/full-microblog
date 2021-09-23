@@ -1,4 +1,5 @@
 
+
 #: app/__init__.py:21
 msgid "Please log in to access this page."
 msgstr "Inicie sesión para acceder a esta página."
@@ -15,9 +16,9 @@ msgstr "Contraseña"
 msgid "Remember Me"
 msgstr "Recuerdame"
 
-#: app/forms.py:11 app/routes.py:69 app/templates/login.html:5
+#: app/forms.py:11 app/routes.py:75 app/templates/login.html:5
 msgid "Sign In"
-msgstr "Iniciar sesión"
+msgstr "Iniciar Sesión"
 
 #: app/forms.py:16 app/forms.py:59
 msgid "Email"
@@ -27,7 +28,7 @@ msgstr "Correo Electronico"
 msgid "Repeat Password"
 msgstr "Repite la contraseña"
 
-#: app/forms.py:20 app/routes.py:90 app/templates/register.html:5
+#: app/forms.py:20 app/routes.py:96 app/templates/register.html:5
 msgid "Register"
 msgstr "Registrarse"
 
@@ -37,7 +38,9 @@ msgstr "El nombre de usuario ya existe. Utilice un nombre de usuario diferente."
 
 #: app/forms.py:30
 msgid "Email already exists. Please use a different email address."
-msgstr "El correo electrónico ya existe. Por favor utilice una dirección de correo electrónico diferente."
+msgstr ""
+"El correo electrónico ya existe. Por favor utilice una dirección de "
+"correo electrónico diferente."
 
 #: app/forms.py:36
 msgid "About me"
@@ -59,68 +62,79 @@ msgstr "Cuentanos Algo"
 msgid "Request Password Reset"
 msgstr "Petición para la recuperación de contraseña"
 
-#: app/routes.py:29
+#: app/routes.py:35
 msgid "Your post is now live!"
 msgstr "¡Tu publicación ya está publicada!"
 
-#: app/routes.py:37 app/templates/base.html:60
+#: app/routes.py:43 app/templates/base.html:60
 msgid "Home"
-msgstr "Home"
+msgstr "Inicio"
 
-#: app/routes.py:49 app/templates/base.html:64
+#: app/routes.py:55 app/templates/base.html:64
 msgid "Explore"
 msgstr "Explorar"
 
-#: app/routes.py:62
+#: app/routes.py:68
 msgid "Invalid username or password"
 msgstr "Usuario o contraseña invalido"
 
-#: app/routes.py:88
+#: app/routes.py:94
 msgid "Congratulations, you are now a registered user!"
 msgstr "¡Felicidades, ahora eres un usuario registrado!"
 
-#: app/routes.py:116
+#: app/routes.py:122
 msgid "Your changes have been saved."
 msgstr "Se han guardado los cambios."
 
-#: app/routes.py:121 app/templates/edit_profile.html:6
+#: app/routes.py:127 app/templates/edit_profile.html:6
 msgid "Edit Profile"
 msgstr "Editar perfil"
 
-#: app/routes.py:132 app/routes.py:151
+#: app/routes.py:138 app/routes.py:157
 #, python-format
 msgid "User %(username)s not found."
 msgstr "Usuario %(username)s no encontrado"
 
-#: app/routes.py:135
+#: app/routes.py:141
 msgid "You cannot follow yourself!"
 msgstr "¡No puedes seguirte a ti mismo!"
 
-#: app/routes.py:139
+#: app/routes.py:145
 #, python-format
 msgid "You are following %(username)s!"
 msgstr "estas siguiendo a %(username)s!"
 
-#: app/routes.py:154
+#: app/routes.py:160
 msgid "You cannot unfollow yourself!"
 msgstr "¡No puedes dejar de seguirte a ti mismo!"
 
-#: app/routes.py:158
+#: app/routes.py:164
 #, python-format
 msgid "You are not following %(username)s."
 msgstr "No estas siguiendo a %(username)s."
 
-#: app/routes.py:174
+#: app/routes.py:180
 msgid "Check your email for the instructions to reset your password"
-msgstr "Consulte su correo electrónico para obtener las instrucciones para restablecer su contraseña"
+msgstr "Consulte su correo electrónico para obtener las instrucciones para "
+"restablecer su contraseña"
+"Consulte su correo electrónico para obtener las instrucciones para "
+"restablecer su contraseña"
 
-#: app/routes.py:176 app/templates/reset_password_request.html:6
+#: app/routes.py:182 app/templates/reset_password_request.html:6
 msgid "Reset Password"
 msgstr "Restablecer la contraseña"
 
-#: app/routes.py:190
+#: app/routes.py:196
 msgid "Your password has been reset."
 msgstr "Tu contraseña ha sido cambiada."
+
+#: app/translate.py:9
+msgid "Error: the translation service is not configured."
+msgstr "Error: el servicio de traducción no está configurado."
+
+#: app/translate.py:18
+msgid "Error: the translation service failed."
+msgstr "Error: el servicio de traducción falló."
 
 #: app/templates/404.html:7
 msgid "Not Found"
@@ -132,7 +146,10 @@ msgstr "Ha ocurrido un error inesperado"
 
 #: app/templates/500.html:7
 msgid "The administrator has been notified. Sorry for the inconvenience!"
-msgstr "Se ha notificado al administrador. ¡Lo siento por los inconvenientes ocasionados!"
+msgstr "Se ha notificado al administrador. ¡Lo siento por los inconvenientes "
+"ocasionados!"
+"Se ha notificado al administrador. ¡Lo siento por los inconvenientes "
+"ocasionados!"
 
 #: app/templates/500.html:8
 msgid "Back"
@@ -142,6 +159,10 @@ msgstr "Atras"
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s dijo %(when)s"
+
+#: app/templates/_post.html:18
+msgid "Translate"
+msgstr "Traducir"
 
 #: app/templates/base.html:29
 msgid "Welcome to "
@@ -158,6 +179,10 @@ msgstr "Perfil"
 #: app/templates/base.html:84
 msgid "Logout"
 msgstr "Cerrar sesión"
+
+#: app/templates/base.html:182
+msgid "Error: Could not contact server."
+msgstr "Error: no se pudo contactar con el servidor."
 
 #: app/templates/index.html:6
 #, python-format
@@ -223,4 +248,194 @@ msgstr "Seguir"
 #: app/templates/user.html:28
 msgid "Unfollow"
 msgstr "Dejar de Seguir"
+
+#: venv/Lib/site-packages/flask_wtf/file.py:50
+#: venv/Lib/site-packages/wtforms/validators.py:218
+#: venv/Lib/site-packages/wtforms/validators.py:258
+msgid "This field is required."
+msgstr "Este campo es requerido."
+
+#: venv/Lib/site-packages/flask_wtf/file.py:83
+msgid "File does not have an approved extension: {extensions}"
+msgstr "El archivo no tiene una extensión aprobada: {extensions}"
+
+#: venv/Lib/site-packages/flask_wtf/file.py:88
+msgid "File does not have an approved extension."
+msgstr "El archivo no tiene una extensión aprobada."
+
+#: venv/Lib/site-packages/flask_wtf/file.py:121
+msgid "File must be between {min_size} and {max_size} bytes."
+msgstr "El archivo debe estar entre {min_size} y {max_size} bytes."
+
+#: venv/Lib/site-packages/wtforms/validators.py:68
+#, python-format
+msgid "Invalid field name '%s'."
+msgstr "Nombre de campo no válido '%s'."
+
+#: venv/Lib/site-packages/wtforms/validators.py:76
+#, python-format
+msgid "Field must be equal to %(other_name)s."
+msgstr "El campo debe ser igual a %(other_name)s."
+
+#: venv/Lib/site-packages/wtforms/validators.py:109
+#, python-format
+msgid "Field must be at least %(min)d character long."
+msgid_plural "Field must be at least %(min)d characters long."
+msgstr[0] "El campo debe tener al menos %(min)d caracteres de longitud."
+msgstr[1] "El campo debe tener al menos %(min)d caracteres de longitud."
+
+#: venv/Lib/site-packages/wtforms/validators.py:112
+#, python-format
+msgid "Field cannot be longer than %(max)d character."
+msgid_plural "Field cannot be longer than %(max)d characters."
+msgstr[0] "El campo no puede tener más de %(max)d caracteres."
+msgstr[1] "El campo no puede tener más de %(max)d caracteres."
+
+#: venv/Lib/site-packages/wtforms/validators.py:115
+#, python-format
+msgid "Field must be exactly %(max)d character long."
+msgid_plural "Field must be exactly %(max)d characters long."
+msgstr[0] "El campo debe ser exactamente %(max)d caracteres de longitud."
+msgstr[1] "El campo debe tener exactamente %(max)d caracteres de longitud."
+
+#: venv/Lib/site-packages/wtforms/validators.py:118
+#, python-format
+msgid "Field must be between %(min)d and %(max)d characters long."
+msgstr "El campo debe estar entre %(min)d and %(max)d caracteres de longitud."
+
+#: venv/Lib/site-packages/wtforms/validators.py:154
+#, python-format
+msgid "Number must be at least %(min)s."
+msgstr "El número debe ser al menos% (min) s."
+
+#: venv/Lib/site-packages/wtforms/validators.py:156
+#, python-format
+msgid "Number must be at most %(min)s."
+msgstr "El número debe ser como máximo %(min)s."
+
+#: venv/Lib/site-packages/wtforms/validators.py:158
+#, python-format
+msgid "Number must be between %(min)s and %(max)s."
+msgstr "El número debe estar entre %(min)s y %(max)s."
+
+#: venv/Lib/site-packages/wtforms/validators.py:290
+msgid "Invalid input."
+msgstr "Entrada inválida."
+
+#: venv/Lib/site-packages/wtforms/validators.py:355
+msgid "Invalid email address."
+msgstr "Dirección de correo electrónico inválida."
+
+#: venv/Lib/site-packages/wtforms/validators.py:388
+msgid "Invalid IP address."
+msgstr "Dirección IP inválida."
+
+#: venv/Lib/site-packages/wtforms/validators.py:430
+msgid "Invalid Mac address."
+msgstr "Dirección Mac no válida."
+
+#: venv/Lib/site-packages/wtforms/validators.py:465
+msgid "Invalid URL."
+msgstr "URL invalida."
+
+#: venv/Lib/site-packages/wtforms/validators.py:485
+msgid "Invalid UUID."
+msgstr "UUID no válido."
+
+#: venv/Lib/site-packages/wtforms/validators.py:515
+#, python-format
+msgid "Invalid value, must be one of: %(values)s."
+msgstr "Valor no válido, debe ser uno de los siguientes: %(values)s."
+
+#: venv/Lib/site-packages/wtforms/validators.py:547
+#, python-format
+msgid "Invalid value, can't be any of: %(values)s."
+msgstr "Valor no válido, no puede ser ninguno de los siguientes: %(values)s."
+
+#: venv/Lib/site-packages/wtforms/csrf/core.py:98
+#: venv/Lib/site-packages/wtforms/ext/csrf/form.py:47
+msgid "Invalid CSRF Token"
+msgstr "Token CSRF no válido"
+
+#: venv/Lib/site-packages/wtforms/csrf/session.py:61
+#: venv/Lib/site-packages/wtforms/ext/csrf/session.py:58
+msgid "CSRF token missing"
+msgstr "Falta el token CSRF"
+
+#: venv/Lib/site-packages/wtforms/csrf/session.py:69
+#: venv/Lib/site-packages/wtforms/ext/csrf/session.py:66
+msgid "CSRF failed"
+msgstr "CSRF falló"
+
+#: venv/Lib/site-packages/wtforms/csrf/session.py:74
+#: venv/Lib/site-packages/wtforms/ext/csrf/session.py:71
+msgid "CSRF token expired"
+msgstr "Token CSRF caducado"
+
+#: venv/Lib/site-packages/wtforms/ext/appengine/fields.py:87
+#: venv/Lib/site-packages/wtforms/ext/appengine/fields.py:164
+#: venv/Lib/site-packages/wtforms/ext/appengine/fields.py:166
+#: venv/Lib/site-packages/wtforms/ext/django/fields.py:95
+#: venv/Lib/site-packages/wtforms/ext/sqlalchemy/fields.py:125
+#: venv/Lib/site-packages/wtforms/ext/sqlalchemy/fields.py:127
+#: venv/Lib/site-packages/wtforms/ext/sqlalchemy/fields.py:180
+#: venv/Lib/site-packages/wtforms/ext/sqlalchemy/fields.py:185
+#: venv/Lib/site-packages/wtforms/fields/core.py:513
+msgid "Not a valid choice"
+msgstr "No es una eleccion valida"
+
+#: venv/Lib/site-packages/wtforms/ext/appengine/fields.py:185
+msgid "Not a valid list"
+msgstr "No es una lista válida"
+
+#: venv/Lib/site-packages/wtforms/ext/appengine/fields.py:204
+msgid "Not a valid integer list"
+msgstr "No es una lista de enteros válida"
+
+#: venv/Lib/site-packages/wtforms/ext/dateutil/fields.py:63
+msgid "Please input a date/time value"
+msgstr "Ingrese un valor de fecha / hora"
+
+#: venv/Lib/site-packages/wtforms/ext/dateutil/fields.py:75
+#: venv/Lib/site-packages/wtforms/ext/dateutil/fields.py:83
+msgid "Invalid date/time input"
+msgstr "Entrada de fecha / hora no válida"
+
+#: venv/Lib/site-packages/wtforms/fields/core.py:505
+msgid "Invalid Choice: could not coerce"
+msgstr "Elección no válida: no se pudo coaccionar"
+
+#: venv/Lib/site-packages/wtforms/fields/core.py:539
+msgid "Invalid choice(s): one or more data inputs could not be coerced"
+msgstr "Elecciones no válidas: no se pudieron forzar una o más entradas de datos"
+
+#: venv/Lib/site-packages/wtforms/fields/core.py:546
+#, python-format
+msgid "'%(value)s' is not a valid choice for this field"
+msgstr "'%(value)s' no es una opción válida para este campo"
+
+#: venv/Lib/site-packages/wtforms/fields/core.py:629
+#: venv/Lib/site-packages/wtforms/fields/core.py:639
+msgid "Not a valid integer value"
+msgstr "no es un valor entero válido"
+
+#: venv/Lib/site-packages/wtforms/fields/core.py:705
+msgid "Not a valid decimal value"
+msgstr "No es un valor decimal válido"
+
+#: venv/Lib/site-packages/wtforms/fields/core.py:732
+msgid "Not a valid float value"
+msgstr "No es un valor flotante válido"
+
+#: venv/Lib/site-packages/wtforms/fields/core.py:793
+msgid "Not a valid datetime value"
+msgstr "No es un valor de fecha y hora válido"
+
+#: venv/Lib/site-packages/wtforms/fields/core.py:810
+msgid "Not a valid date value"
+msgstr "No es un valor de fecha válido"
+
+#: venv/Lib/site-packages/wtforms/fields/core.py:827
+msgid "Not a valid time value"
+msgstr "No es un valor de tiempo válido"
 
