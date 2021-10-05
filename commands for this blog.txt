@@ -1,3 +1,13 @@
+INITIAL COMMANDS
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+flask db migrate -m "posts table"
+flask db upgrade
+flask run
+
+
+
 python -m venv venv   // to create the virtual environment files.
 .\venv\Scripts\Activate.ps1    //  In windows we use this command to activate the virtual environment (If is not letting activate it use in PowerShell admin mode this command "Set-ExecutionPolicy Unrestricted" and when it prompts type "Y").  "source venv/bin/activate" in other systems like Linux and Mac Os use this command to activate the virtual environment.
 pip install "flask<2"  //  This is to install flask in the virtual environment.
@@ -55,3 +65,10 @@ flask translate compile  //  And to compile all languages after updating the tra
 pip install langdetect  // In Python, there is a good language detection library called langdetect. Microsoft Azure free tier account translator with a******ra@outlook.com account. 
 pip install requests  // There are a few HTTP clients in Python, but the most popular and simple to use is the requests package.
 
+pip install python-dotenv  // Installs the dotenv module for flask to read the .env file with the secret variables
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html  // Install this application locally to run the search engine on the page
+pip install elasticsearch  //  Install also the python package
+
+pip freeze > requirements.txt  //  To create the requirements.txt
+pip install -r requirements.txt  // To installs the requirements according to the requirements.txt

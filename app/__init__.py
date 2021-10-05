@@ -10,7 +10,11 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l, _
+from dotenv import load_dotenv
+from elasticsearch import Elasticsearch
+from flask_bootstrap import Bootstrap
 
+load_dotenv()
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -19,14 +23,19 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
 login.login_message = _l('Please log in to access this page.')
+app.elasticsearch = Elasticsearch([os.getenv("ELASTICSEARCH_URL")]) \
+        if os.getenv("ELASTICSEARCH_URL") else None 
+bootstrap = Bootstrap(app)
+
 
 # Added Started Here
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'holacuentame2021@gmail.com'
-app.config['MAIL_PASSWORD'] = '@Rp596693'
-app.config['MS_TRANSLATOR_KEY'] = 'af74ced9afcc4b1faf6831932aec7746'  ##  Delete Key
+os.getenv("MS_TRANSLATOR_KEY")
+os.getenv("MAIL_SERVER")
+os.getenv("MAIL_PORT")
+os.getenv("MAIL_USERNAME")
+os.getenv("MAIL_PASSWORD")
+# os.getenv("ELASTICSEARCH_URL")
+
 # Added Ended Here
 
 mail = Mail(app)

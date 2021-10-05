@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextA
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from app.models import User
 from flask_babel import _, lazy_gettext as _l
+from flask import request
 
 class LoginForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()], render_kw={"placeholder": "Username"})
@@ -65,4 +66,22 @@ class ResetPasswordForm(FlaskForm):
     password2 = PasswordField(
         _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField(_l('Request Password Reset'))
+
+
+class SearchForm(FlaskForm):
+    q = StringField(_l('Search'), validators=[DataRequired()])
+
+    def __init__(self, *args, **kwargs):
+        if 'formdata' not in kwargs:
+            kwargs['formdata'] = request.args
+        if 'csrf_enabled' not in kwargs:
+            kwargs['csrf_enabled'] = False
+        super(SearchForm, self).__init__(*args, **kwargs)
+
+
+class MessageForm(FlaskForm):
+    message = TextAreaField(_l('Message'), validators=[
+        DataRequired(), Length(min=0, max=140)])
+    submit = SubmitField(_l('Submit'))
+
 

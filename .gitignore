@@ -2,3 +2,5 @@ __pycache__
 .tabline.model
 logs
 important_info.txt
+.env
+venv

@@ -18,15 +18,23 @@
                 <p>
                     <form action="{{ url_for('follow', username=user.username) }}" method="post">
                         {{ form.hidden_tag() }}
-                        {{ form.submit(value=_('Follow'), class="btn btn-primary") }}
+                        {{ form.submit(value=_('Follow'), class="btn btn-success") }}
                     </form>
                 </p>
                 {% else %}
                 <p>
                     <form action="{{ url_for('unfollow', username=user.username) }}" method="post">
                         {{ form.hidden_tag() }}
-                        {{ form.submit(value=_('Unfollow'), class="btn btn-primary") }}
+                        {{ form.submit(value=_('Unfollow'), class="btn btn-outline-danger") }}
                     </form>
+                </p>
+                {% endif %}
+                {% if user != current_user %}
+                <p>
+                    <a href="{{ url_for('send_message',
+                                        recipient=user.username) }}">
+                        {{ _('Send private message') }}
+                    </a>
                 </p>
                 {% endif %}
             </td>
