@@ -2,6 +2,3 @@ __pycache__
 .tabline.model
 logs
 important_info.txt
-.env
-venv
-send_message_div.jpg
