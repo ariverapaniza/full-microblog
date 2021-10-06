@@ -68,7 +68,7 @@ pip install requests  // There are a few HTTP clients in Python, but the most po
 pip install python-dotenv  // Installs the dotenv module for flask to read the .env file with the secret variables
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html  // Install this application locally to run the search engine on the page
-pip install elasticsearch  //  Install also the python package
+pip install elasticsearch  //  Install also the python package.
 
 pip freeze > requirements.txt  //  To create the requirements.txt
 pip install -r requirements.txt  // To installs the requirements according to the requirements.txt
