@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+    <h1>{{ _('Messages') }}</h1>
+    {% for post in messages %}
+        {% include '_post.html' %}
+    {% endfor %}
+    </div>
+    <div class="container">
+        <nav>
+          <ul class="pagination justify-content-between">
+            {% if prev_url %}
+            <li class="page-item px-5">
+              <a class="page-link" href="{{ prev_url }}">{{ _('Newer Messages') }}</a>
+            </li>
+            {% else %}
+            <li class="page-item px-5 disabled">
+              <a class="page-link" href="{{ prev_url }}">{{ _('Newer Messages') }}</a>
+            </li>
+            {% endif %}
+      
+            {% if next_url %}
+            <li class="page-item px-5">
+              <a class="page-link" href="{{ next_url }}">{{ _('Older Messages') }}</a>
+            </li>
+            {% else %}
+            <li class="page-item px-5 disabled">
+              <a class="page-link" href="{{ next_url }}">{{ _('Older Messages') }}</a>
+            </li>
+            {% endif %}
+            </li>
+          </ul>
+        </nav>
+      </div>
+  {% endblock %}
