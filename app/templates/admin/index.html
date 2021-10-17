@@ -1,0 +1,22 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+  
+
+  <div class="container">
+
+    <center><img src="{{ url_for('static', filename='holacuentame_400px_black.png')}}" alt=""></center>
+
+    <br>
+    <center> <h3>Welcome to the Admin Dashboard</h3> </center>
+
+    <br>
+    <br>
+
+    <h3>To Register a New Admin <a href="{{ url_for('register_admin') }}">Click Here.</a> </h3>
+
+    <br>
+    <h3>To go to the Main Page, <a href="{{ url_for('index') }}">Click Here.</a></h3>
+  </div>
+
+{% endblock %} 

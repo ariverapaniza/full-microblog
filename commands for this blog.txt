@@ -1,0 +1,77 @@
+INITIAL COMMANDS
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+flask db migrate -m "Messages table"
+flask db upgrade
+flask run
+
+
+
+python -m venv venv   // to create the virtual environment files.
+.\venv\Scripts\Activate.ps1    //  In windows we use this command to activate the virtual environment (If is not letting activate it use in PowerShell admin mode this command "Set-ExecutionPolicy Unrestricted" and when it prompts type "Y").  "source venv/bin/activate" in other systems like Linux and Mac Os use this command to activate the virtual environment.
+pip install "flask<2"  //  This is to install flask in the virtual environment.
+set FLASK_APP=microblog.py  // Is to tell the Venv that the FLASK_APP is going to run from the file microblog.py. In Linux use the command "export FLASK_APP=microblog.py"
+flask run // This is to run the flask app
+pip install python-dotenv  // Since environment variables aren't remembered across terminal sessions, you may find tedious to always have to set the FLASK_APP environment variable when you open a new terminal window. Starting with version 1.0, Flask allows you to register environment variables that you want to be automatically imported when you run the flask command. To use this option you have to install the python-dotenv package. 
+Then you can just write the environment variable name and value in a file named .flaskenv located in the top-level directory of the project:  "FLASK_APP=microblog.py"
+pip install flask-wtf  // Installs the WTForms Components from flask
+
+pip install flask-sqlalchemy  // This will install the flask-sqlalchemy component.
+pip install flask-migrate  // This will help to migrate or modify the DB when needed. Flask-Migrate is an extension that handles SQLAlchemy database migrations for Flask applications using Alembic. The database operations are provided as command-line arguments under the flask db command.  See documentation: https://github.com/miguelgrinberg/flask-migrate
+
+flask db init    //  This will create a database migration repository and when we need to migrate or modify the database, it will not delete all the existing data.
+flask db migrate -m "users table"  //  This will migrate the database to the repository folder and create like a backup to compare the tables and update the new one. More info in: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database   //  It also has a upgrade() and downgrade() method in case you want to revert the changes. The flask db migrate command does not make any changes to the database, it just generates the migration script. To apply the changes to the database, the flask db upgrade command must be used.
+flask db upgrade  //  To apply the changes to the database, the flask db upgrade command must be used.
+
+TO UPGRADE CHANGES TO THE DATABASE, Run the following command:
+flask db migrate -m "posts table"  //  Since I have updates to the application models, a new database migration needs to be generated. This will report what the changes will be. The "-m" is the message that we want to store.
+flask db upgrade   // And the migration needs to be applied to the database. This will upgrade the database repository and the DB with the new changes.
+
+pip install flask-login  //  Installs the flask-login module 
+pip install email-validator  // Installs the email-validator module
+
+set FLASK_ENV=development  //  This is to enable the DEGUB mode to display the error messages if the application fails.
+set FLASK_ENV=production   //  This will enable the production mode and it will disable the DEBUG MODE. This has to be done when the page is live!.
+
+CONFIGURE EMAIL SERVER TO SEND ERROR MESSAGES.  THIS SHOULD BE PUT IN THE TERMINAL.
+set MAIL_SERVER=smtp.gmail.com
+set MAIL_PORT=587
+set MAIL_USE_TLS=1
+set MAIL_USERNAME=<your-gmail-username>
+set MAIL_PASSWORD=<your-gmail-password>
+
+python test.py   //  This file was created to test the application
+
+pip install flask-mail  // This will install te flask-mail module
+pip install pyjwt  // This will install the pyjwt module. The password reset links will have a secure token in them. To generate these tokens, I'm going to use JSON Web Tokens, which also have a popular Python package
+
+pip install flask-bootstrap  //  This will install the bootstrap plugin but is Bootstrap 3. It is better to doit with the CDN.
+
+pip install flask-moment  // Moment.js is a small open-source JavaScript library that takes date and time rendering to another level, as it provides every imaginable formatting option, and then some.  Use the code in the base.html otherwise it will not work since I am not using the Flask-Bootstrap component. 
+
+pip install flask-babel  //  As you can probably guess, there is a Flask extension that makes working with translations very easy.
+pybabel extract -F babel.cfg -k _l -o messages.pot .  // To extract all the texts to the .pot file, you can use this command. The pybabel extract command reads the configuration file given in the -F option, then scans all the code and template files in the directories that match the configured sources, starting from the directory given in the command (the current directory or . in this case). By default, pybabel will look for _() as a text marker, but I have also used the lazy version, which I imported as _l(), so I need to tell the tool to look for those too with the -k _l. The -o option provides the name of the output file.
+pybabel init -i messages.pot -d app/translations -l es  //  The next step in the process is to create a translation for each language that will be supported in addition to the base one, which in this case is English. I said I was going to start by adding Spanish (language code es), so this is the command that does that. 
+pybabel compile -d app/translations  // To compile all the translations for the application, you can use the pybabel compile command. 
+pybabel extract -F babel.cfg -k _l -o messages.pot .  // Another common scenario occurs if you missed some texts when you added the _() wrappers. In this case you are going to see that those texts that you missed are going to remain in English, because Flask-Babel knows nothing about them. In this situation you'll want to add the _() or _l() wrappers when you detect texts that don't have them, and then do an update procedure, which involves two steps. This and the next line: 
+pybabel update -i messages.pot -d app/translations    // See previous comment
+BETTER TO USE THIS COMMANDS
+So now, the workflow is much simpler and there is no need to remember long and complicated commands. To add a new language, you use:
+flask translate init es  //  is going to create the spanish translate in the page. 
+flask translate update  //  To update all the languages after making changes to the _() and _l() language markers
+flask translate compile  //  And to compile all languages after updating the translation files
+
+pip install langdetect  // In Python, there is a good language detection library called langdetect. Microsoft Azure free tier account translator with a******ra@outlook.com account. 
+pip install requests  // There are a few HTTP clients in Python, but the most popular and simple to use is the requests package.
+
+pip install python-dotenv  // Installs the dotenv module for flask to read the .env file with the secret variables
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html  // Install this application locally to run the search engine on the page
+pip install elasticsearch  //  Install also the python package
+
+pip install Flask-Admin  // This will install all the repositories for the admin application for flask.
+
+
+pip freeze > requirements.txt  //  To create the requirements.txt
+pip install -r requirements.txt  // To installs the requirements according to the requirements.txt

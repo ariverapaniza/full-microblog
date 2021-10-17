@@ -1,0 +1,381 @@
+.navbar-brand {
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+  }
+
+/* =========== ACCOUNT PAGE ============ */
+
+.account-img{
+  height: 257px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 0 14px 0 12px;
+  /* background: #1d1b31; */
+  transition: all 0.5s ease;
+  align-items: center;
+}
+
+.account__img-avatar{
+  height: 60px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 14px 0 12px;
+  /* background: #1d1b31; */
+  transition: all 0.5s ease;
+  align-items: center;
+}
+
+.account__container{
+  align-items: center;
+  border-radius: 16px;
+}
+
+/* =========== ACCOUNT SINGLE PROFILE PAGE ============ */
+
+.account__padding {
+  padding-left: 15rem; /*!important - IT PLACES THE ENTIRE CARD IN POSITION IN THE HTML*/
+  padding-right: 15rem; /*!important - IT PLACES THE ENTIRE CARD IN POSITION IN THE HTML*/
+  border-radius: 16px;
+}
+
+.account__info-color {
+  background-color: #fff;
+}
+
+.account__user-card-full {
+  overflow: hidden
+}
+
+.account__card {
+  border-radius: 10px;
+  --webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  border: none;
+  margin-bottom: 30px
+}
+
+.account__m-r-0 {
+  margin-right: 0px
+}
+
+.account__m-l-0 {
+  margin-left: 0px
+}
+
+.account__user-card-full .account__user-profile {
+  border-radius: 20px 0 0 20px
+}
+
+.account__bg-c-lite-green {
+  /* background: --webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f)); */
+  background: linear-gradient(to right, #212429, #68696b)
+}
+
+.account__user-profile {  /* The height of the entire card */
+  padding: 130px 0
+}
+
+.account__card-block {
+  padding: 1.25rem
+}
+
+.account__m-b-25 {
+  margin-bottom: 25px
+}
+
+.account__img{  /* This is the image */
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 0 14px 0 12px;
+  transition: all 0.5s ease;
+  align-items: center;
+}
+
+
+h6 {
+  font-size: 14px
+}
+
+.card .account__card-block p {
+  line-height: 25px
+}
+
+@media only screen and (min-width: 1400px) {
+  p {
+      font-size: 14px
+  }
+}
+
+.account__card-block {
+  padding: 1.25rem
+}
+
+.account__b-b-default {
+  border-bottom: 1px solid #e0e0e0
+}
+
+.account__m-b-20 {
+  margin-bottom: 20px
+}
+
+.account__p-b-5 {
+  padding-bottom: 5px /*!important*/
+}
+
+.card .account__card-block p {
+  line-height: 25px
+}
+
+.account__m-b-10 {
+  margin-bottom: 10px
+}
+
+.account__text-muted {
+  color: #919aa3 /*!important*/
+}
+
+.account__b-b-default {
+  border-bottom: 1px solid #e0e0e0
+}
+
+.account__f-w-600 {
+  font-weight: 600
+}
+
+.account__m-b-20 {
+  margin-bottom: 20px
+}
+
+.account__m-t-40 {
+  margin-top: 20px
+}
+
+.account__p-b-5 {
+  padding-bottom: 5px /*!important*/
+}
+
+.account__m-b-10 {
+  margin-bottom: 10px
+}
+
+.account__m-t-40 {
+  margin-top: 20px
+}
+
+.account__user-card-full .account__social-link li {
+  display: inline-block
+}
+
+.account__user-card-full .account__social-link li a {
+  font-size: 35px;
+  margin: 0 10px 0 0;
+  --webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out
+}
+
+/* =========== ENDED ACCOUNT PAGE ============ */
+
+
+
+/*--------------------------------------------------------------
+# Contact Us
+--------------------------------------------------------------*/
+
+.section-title{
+  text-align: center;
+}
+
+.contact .info-wrap {
+  background: var(--background-contact-color);    /* Background Form Original rgba(10, 10, 10, 0.06);  Alt 0.192 */
+  padding: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: var(--text-color);
+}
+
+.contact .info i {
+  font-size: 20px;
+  color: #fff;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: rgba(10, 10, 10, 0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.contact .info p {
+  padding: 0 0 10px 60px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.contact .info .email p {
+  padding-top: 5px;
+}
+
+.contact .info .social-links {
+  padding-left: 60px;
+}
+
+.contact .info .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+  margin-right: 10px;
+}
+
+.contact .info .social-links a:hover {
+  background: #ff0000;
+  color: #fff;
+}
+
+.contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i {
+  background: #ff0000;
+  color: #fff;
+}
+
+.contact .php-email-form {
+  width: 100%;
+  padding: 30px;
+  padding-top: 0;
+  background: var(--background-contact-color);   /* Background Form Original rgba(10, 10, 10, 0.06);  Alt 0.192 */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.contact .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.contact .php-email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form input, .contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  background: rgb(255, 255, 255);   /* Form Input Boxes - Original rgba(5, 4, 4, 0.158) */
+  border: 1px solid rgb(14, 14, 14);   /* Border Original rgba(14, 14, 14, 0.2); */
+  color: rgb(0, 0, 0);   /* Original Text color */
+}
+
+.contact .php-email-form input::-webkit-input-placeholder, .contact .php-email-form textarea::-webkit-input-placeholder {
+  color: rgba(14, 14, 14, 0.2);  /* Original rgba(255, 255, 255, 0.4) */
+}
+
+.contact .php-email-form input::-moz-placeholder, .contact .php-email-form textarea::-moz-placeholder {
+  color: rgba(14, 14, 14, 0.2);  /* Original rgba(255, 255, 255, 0.4) */
+}
+
+.contact .php-email-form input::placeholder, .contact .php-email-form textarea::placeholder {
+  color: rgba(14, 14, 14, 0.671);  /* Placeholder text color - Original rgba(255, 255, 255, 0.4) */
+}
+
+.contact .php-email-form input {
+  height: 44px;
+}
+
+.contact .php-email-form textarea {
+  padding: 10px 12px;
+}
+
+.contact .php-email-form button[type="submit"] {
+  background: #8a7efc;  /* Original: #ff0000  */
+  border: 0;
+  padding: 10px 24px;
+  color: rgb(255, 255, 255);
+  transition: 0.4s;
+}
+
+.contact .php-email-form button[type="submit"]:hover {
+  background: #574daf;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# ENDED Contact Us
+--------------------------------------------------------------*/
