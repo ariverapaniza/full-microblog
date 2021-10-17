@@ -5,3 +5,4 @@ important_info.txt
 .env
 send_message_div.jpg
 venv
+app/__pycache__
