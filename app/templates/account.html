@@ -1,0 +1,148 @@
+{% extends 'base.html' %} {% block content %}
+
+
+
+                <div class="row d-flex justify-content-center account__padding section-title col-md-6 col-md-12">
+                    <div class="account__card account__user-card-full">
+                        <div class="row account__m-l-0 account__m-r-0">
+                            <div class="col-xl-5 account__bg-c-lite-green account__user-profile">
+                                <div class="account__card-block text-center text-white">
+                                    <div class="account__m-b-25"> <img src="{{image_url}}" class="account__img" alt="User-Profile-Image"> </div>
+                                    <br>
+                                    <br>
+                                    <h3 class="account__f-w-600">{{current_user.username}}</h3>
+                                    <br>
+                                    <h4>{{current_user.firstname}} {{current_user.lastname}}</h4> <i class=" mdi mdi-square-edit-outline feather icon-edit account__m-t-10 f-16"></i>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 account__info-color">
+                                <legend class='border-bottom mb-4 section-title'>{{legend}}</legend>
+                                <div class="account__card-block">
+                                    <h6 class="account__m-b-20 account__p-b-5 account__b-b-default account__f-w-600">Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="account__m-b-10 account__f-w-600">First Name</p>
+                                            <h6 class="account__text-muted account__f-w-400">{{current_user.firstname}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="account__m-b-10 account__f-w-600">Last Name</p>
+                                            <h6 class="account__text-muted account__f-w-400">{{current_user.lastname}}</h6>
+                                        </div>
+                                    </div>
+                                    <h6 class="account__m-b-20 account__m-t-40 account__p-b-5 account__b-b-default account__f-w-600">Contact Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="account__m-b-10 account__f-w-600">Email</p>
+                                            <h6 class="account__text-muted account__f-w-400">{{current_user.email}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="account__m-b-10 account__f-w-600">Phone</p>
+                                            <h6 class="account__text-muted account__f-w-400">Not Listed</h6>
+                                        </div>
+                                    </div>
+
+                                    <h6 class="account__m-b-20 account__m-t-40 account__p-b-5 account__b-b-default account__f-w-600">More Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="account__m-b-10 account__f-w-600">Last Seen</p>
+                                            <h6 class="account__text-muted account__f-w-400">{% if current_user.last_seen %}<p>{{ _('Last seen on') }}: {{ moment(current_user.last_seen).format('LLL') }}</p>{% endif %}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="account__m-b-10 account__f-w-600">Followers and Following</p>
+                                            <h6 class="account__text-muted account__f-w-400">{{ _('%(count)d followers', count=current_user.followers.count()) }}, {{ _('%(count)d following', count=current_user.followed.count()) }}</h6>
+                                        </div>
+                                    </div>
+
+
+                                    <h6 class="account__m-b-20 account__m-t-40 account__p-b-5 account__b-b-default account__f-w-600">About Me</h6>
+                                    <div class="row">
+                                        <h6 class="account__text-muted account__f-w-400">{% if current_user.about_me %}<p>{{ current_user.about_me }}</p>{% endif %}</h6>
+                                    <h2> <a href="{{ url_for('edit_profile') }}">{{ _('Edit your profile') }}</a> </h2>
+                                    </div>
+                                </div>
+                                <legend class='border-bottom mb-4 section-title'>Change Profile Picture</legend>
+                                <form method="POST" action="" enctype="multipart/form-data">
+                                    {{form.hidden_tag()}}
+                                    <fieldset>
+                                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                                            <div class="accordion-item">
+                                              <h2 class="accordion-header" id="flush-headingOne">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                  .
+                                                </button>
+                                              </h2>
+                                              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">
+                                                    
+                                                    <div class="form-group">
+                                                        {{form.username.label(class='form-control-label')}}
+                                                        {% if form.username.errors %} 
+                                                        {{form.username(class='form-control form-control-lg is-invalid')}}
+                                                        {% for error in form.username.errors %}
+                                                        <span>{{error}}</span>
+                                                        {% endfor %}
+                                                        {% else %}
+                                                        {{form.username(class='form-control form-control-lg')}}
+                                                        {% endif %}
+                                        
+                                        
+                                                    </div>
+                                        
+                                        
+                                        
+                                                    <div class="form-group">
+                                                        {{form.email.label(class='form-control-label')}}
+                                                        {% if form.email.errors %} 
+                                                        {{form.email(class='form-control form-control-lg is-invalid')}}
+                                                        {% for error in form.email.errors %}
+                                                        <span>{{error}}</span>
+                                                        {% endfor %}
+                                                        {% else %}
+                                                        {{form.email(class='form-control form-control-lg')}}
+                                                        {% endif %}
+                                        
+                                        
+                                                    </div>
+                                        
+                                        
+                                                </div>
+                                              </div>
+                                            </div>
+                                        
+                                        </div>
+                                        <br>
+                        
+                                        <div class="form-group">
+                                            {{form.picture.label()}} 
+                                            {{form.picture(class='form-control-file')}}
+                                            {% if form.picture.errors %}
+                                                {% for error in form.picture.errors %}
+                                                    <span class='text-danger'>{{error}}</span><br>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                        
+                                    </fieldset>
+                                    <div class="field-group mt-4 section-title">
+                                        {{form.submit(class='btn btn-success')}}
+                                    </div>
+                                    <br>
+                                    <br>
+                        
+                                </form>
+                        
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                
+
+</div>
+</div>
+    <br>
+    <br>
+    <br>
+
+{% endblock content %}

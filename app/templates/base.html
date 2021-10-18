@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap 5 CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+
+    <!-- Popper Development version -->
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+
+    <!-- Popper Production version -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+    <!-- Fontawesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Boxiocns CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+        <!-- Icons -->
+        <link
+        rel="stylesheet"
+        href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+      />
+    
+
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='favicon.png')}}" rel="icon" />
+
+    <!-- Own Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+
+    {% if title %}
+    <title>{{ title }} - HolaCuenta.me</title>
+    {% else %}
+    <title>{{ _('Welcome to ') }}HolaCuenta.me</title>
+    {% endif %}
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+          <img
+            src="{{ url_for('static', filename='holacuentame_logo_80px_black.png')}}"
+            alt=""
+            width="auto"
+            height="56"
+            class="d-inline-block align-text-top"
+          />
+          Cuenta.me</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+          <div class="navbar-nav">
+
+            {% if g.search_form %}
+            <form
+              class="navbar-form navbar-right"
+              method="get"
+              action="{{ url_for('search') }}"
+            >
+              <div class="form-group">
+                {{ g.search_form.q(size=20, class='form-control',
+                placeholder=g.search_form.q.label.text) }}
+              </div>
+            </form>
+            {% endif %}
+          </div>  
+
+          <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="{{ url_for('index') }}"
+                  >{{ _('Home') }}</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('explore') }}"
+                  >{{ _('Explore') }}</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contact') }}"
+                  >{{ _('Contact Us') }}</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}"
+                  >{{ _('About Us') }}</a
+                >
+              </li>
+            </ul>
+
+            <ul class="navbar-nav justify-content-end">
+              {% if current_user.is_admin == True %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('admin.index') }}">{{ _('Admin') }}</a>
+              </li>
+              {% endif %}
+      
+              {% if current_user.is_anonymous %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">{{ _('Login') }}</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('messages') }}">
+                  {{ _('Messages') }}
+                  {% set new_messages = current_user.new_messages() %}
+                  <span id="message_count" class="badge bg-danger"
+                        style="visibility: {% if new_messages %}visible
+                                           {% else %}hidden {% endif %};">
+                      {{ new_messages }}
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('account') }}"
+                  >{{ _('Account') }}</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('user', username=current_user.username) }}"
+                  >{{ _('Profile') }}</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}"
+                  >{{ _('Logout') }}</a
+                >
+              </li>
+              {% endif %}
+            </ul>
+          </div>  
+
+          
+        </div>
+  
+      </div>
+    </nav>
+  </head>
+  <body>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %} {% if category ==
+      'error' %}
+      <div class="alert alert-danger alter-dismissible fade show" role="alert">
+        {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+        ></button>
+      </div>
+      {% else %}
+      <div class="alert alert-success alter-dismissible fade show" role="alert">
+        {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+        ></button>
+      </div>
+      {% endif %} {% endfor %} {% endif %} {% endwith %}
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <!-- JavaScript Bootstrap 5 Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+      var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+        trigger: 'focus'
+      })
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/999ca2bb93.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JS JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Moments Locale Timezone Scripts -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
+      integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      moment.locale("en");
+      function flask_moment_render(elem) {
+        const timestamp = moment(elem.dataset.timestamp);
+        const func = elem.dataset.function;
+        const format = elem.dataset.format;
+        const timestamp2 = elem.dataset.timestamp2;
+        const no_suffix = elem.dataset.nosuffix;
+        const units = elem.dataset.units;
+        let args = [];
+        if (format) args.push(format);
+        if (timestamp2) args.push(moment(timestamp2));
+        if (no_suffix) args.push(no_suffix);
+        if (units) args.push(units);
+        elem.textContent = timestamp[func].apply(timestamp, args);
+        elem.classList.remove("flask-moment");
+        elem.style.display = "";
+      }
+      function flask_moment_render_all() {
+        const moments = document.querySelectorAll(".flask-moment");
+        moments.forEach(function (moment) {
+          flask_moment_render(moment);
+          const refresh = moment.dataset.refresh;
+          if (refresh && refresh > 0) {
+            (function (elem, interval) {
+              setInterval(function () {
+                flask_moment_render(elem);
+              }, interval);
+            })(moment, refresh);
+          }
+        });
+      }
+      document.addEventListener("DOMContentLoaded", flask_moment_render_all);
+    </script>
+    <script src="{{ url_for('static', filename='locale.js')}}"></script>
+
+    <!-- Main JS Scripts -->
+    <script
+    type="text/javascript"
+    src="{{ url_for('static', filename='index.js')}}"
+    ></script>
+
+
+    <!-- Transalate Script -->
+    <script>
+      function translate(sourceElem, destElem, sourceLang, destLang) {
+          $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
+          $.post('/translate', {
+              text: $(sourceElem).text(),
+              source_language: sourceLang,
+              dest_language: destLang
+          }).done(function(response) {
+              $(destElem).text(response['text'])
+          }).fail(function() {
+              $(destElem).text("{{ _('Error: Could not contact server.') }}");
+          });
+      }
+    </script>
+
+    <!-- Popover Script -->
+    <script>
+      $(function () {
+        var timer = null;
+        var xhr = null;
+        $(".user_popup").hover(
+          function (event) {
+            // mouse in event handler
+            var elem = $(event.currentTarget);
+            timer = setTimeout(function () {
+              timer = null;
+              xhr = $.ajax(
+                "/user/" + elem.first().text().trim() + "/popup"
+              ).done(function (data) {
+                xhr = null;
+                elem
+                  .popover({
+                    trigger: "hover",
+                    html: true,
+                    animation: false,
+                    container: elem,
+                    content: data,
+                  })
+                  .popover("show");
+                flask_moment_render_all();
+              });
+            }, 1000);
+          },
+          function (event) {
+            // mouse out event handler
+            var elem = $(event.currentTarget);
+            if (timer) {
+              clearTimeout(timer);
+              timer = null;
+            } else if (xhr) {
+              xhr.abort();
+              xhr = null;
+            } else {
+              elem.popover("destroy");
+            }
+          }
+        );
+      });
+
+
+      function set_message_count(n) {
+        $('#message_count').text(n);
+        $('#message_count').css('visibility', n ? 'visible' : 'hidden');
+      }
+
+
+      {% if current_user.is_authenticated %}
+      $(function() {
+          var since = 0;
+          setInterval(function() {
+              $.ajax('{{ url_for('notifications') }}?since=' + since).done(
+                  function(notifications) {
+                      for (var i = 0; i < notifications.length; i++) {
+                          if (notifications[i].name == 'unread_message_count')
+                              set_message_count(notifications[i].data);
+                          since = notifications[i].timestamp;
+                      }
+                  }
+              );
+          }, 10000);
+      });
+      {% endif %}
+    </script>
+
+    <!-- Contact Us JS Files -->
+
+    <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js')}}"></script>
+
+        
+  </body>
+</html>

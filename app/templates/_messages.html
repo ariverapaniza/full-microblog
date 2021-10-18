@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row table-hover">
+        <div class="col-md-12">
+            <div class="blog-comment">
+                <hr/>
+                <ul class="comments">                
+                    
+                    <div class="post-comments">
+                        <h4>
+
+                            {% set user_link %}
+                            <span class="user_popup">
+                                <a href="{{ url_for('user', username=post.author.username) }}"> <img src="{{ post.author.avatar(40) }}" class="avatar" alt=""></a>
+                                <a href="{{ url_for('user', username=post.author.username) }}">
+                                    {{ post.author.username }}
+                                </a>
+                            </span>
+                            {% endset %}
+
+                             {{ _('%(username)s said %(when)s', username=user_link, when=moment(post.timestamp).fromNow()) }} </h4> <i class="pull-right"></i></p>
+                        <span id="post{{ post.id }}">{{ post.body }}</span>
+                            <br>
+                        {% if username != current_user %}
+                        <p>
+                            <a href="{{ url_for('send_message',
+                                        recipient=post.author.username) }}">
+                                {{ _('Reply to this message') }}
+                            </a>
+                        </p>
+                        {% endif %}
+
+
+                        {% if post.language and post.language != g.locale %}
+                        <br><br>
+                        <span id="translation{{ post.id }}">
+                            <a href="javascript:translate(
+                                        '#post{{ post.id }}',
+                                        '#translation{{ post.id }}',
+                                        '{{ post.language }}',
+                                        '{{ g.locale }}');">{{ _('Translate') }}</a>
+                        </span>
+                        {% endif %}
+                    </div>
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

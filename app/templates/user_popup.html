@@ -1,0 +1,39 @@
+    <div class="row table-hover">
+        <div class="col-md-12">
+            <div class="blog-comment">
+                <hr/>
+                <ul class="comments">                
+                    
+                    <div class="post-comments">
+                        
+                        <p><a href="{{ url_for('user', username=user.username) }}"><img src="{{ user.avatar(40) }}" class="avatar" alt=""> {{ user.username }}</a></p>
+                            {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                            {% if user.last_seen %}
+                            <p>{{ _('Last seen on') }}: {{ moment(user.last_seen).format('lll') }}</p>
+                            {% endif %}
+                            <p>{{ _('%(count)d followers', count=user.followers.count()) }}, {{ _('%(count)d following', count=user.followed.count()) }}</p>
+                                
+                                {% if user != current_user %}
+                                <p>
+                                    <a href="{{ url_for('send_message',
+                                                        recipient=user.username) }}">
+                                        {{ _('Send private message') }}
+                                    </a>
+                                </p>
+                                {% endif %}
+
+
+                                {% if user == current_user %}
+                                <p><a href="{{ url_for('edit_profile') }}">{{ _('Edit your profile') }}</a></p>
+                                
+                                {% else %}
+                                <p><a href="{{ url_for('user', username=user.username) }}">Go to {{ user.username }} Profile</a></p>                                
+                                {% endif %}
+
+                    </div>
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+
